@@ -1,0 +1,12 @@
+#!/bin/bash
+
+install_module () {
+  if ! puppet module list | grep -q "$1"; then
+    puppet module install "$1"
+  fi
+}
+
+install_module puppetlabs-apache
+install_module puppetlabs-mysql
+install_module puppetlabs-vcsrepo
+install_module puppetlabs-git
